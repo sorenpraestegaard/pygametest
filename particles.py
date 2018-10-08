@@ -12,7 +12,7 @@ class Particle():
         self.dy = float(randint(200,700))/10000
         self.dx = randint(3,7)
         self.start_time = pygame.time.get_ticks() + randint(0,100)
-        self.w = randint(1,100)/100
+        self.w = randint(1,100)/6000
 
     def move(self, t):
         dist = abs(self.startpos[1] - self.pos[1])
