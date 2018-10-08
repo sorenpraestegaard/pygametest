@@ -4,7 +4,7 @@ from particles import Particle
 
 pygame.init()
 
-size = width, height = 320, 240
+size = width, height = 640, 480
 speed = [2,2]
 pos = [150, 100]
 black = 0,0,0
@@ -13,7 +13,7 @@ screen = pygame.display.set_mode(size)
 running = True
 particles = []
 
-for i in range(300):
+for i in range(100):
 	particles.append(Particle(100,50))
 
 while running:
