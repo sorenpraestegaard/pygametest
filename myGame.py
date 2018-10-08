@@ -1,5 +1,6 @@
 import pygame
 import math
+from particles import Particle
 
 pygame.init()
 
@@ -10,17 +11,23 @@ black = 0,0,0
 time = 0
 screen = pygame.display.set_mode(size)
 running = True
+particles = []
+
+for i in range(300):
+	particles.append(Particle(100,50))
 
 while running:
+	time = pygame.time.get_ticks()
 	for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				running = False
 
-	time = time + 0.01
-	pos[0] = 50 * math.sin(time)
+	for p in particles:
+		p.move(time)
 
 	screen.fill(black)
-	pygame.draw.rect(screen, (255, 0, 100), [pos[0], pos[1], 10, 10], 2)
+	for p in particles:
+		p.draw_particle(screen)
 	pygame.display.flip()
 
 pygame.display.quit()
